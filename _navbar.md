@@ -1,5 +1,5 @@
 
-* 学习
+* Studies
   * [RPE Chart File](study.pec)
 
 * **MilkCOCO**
