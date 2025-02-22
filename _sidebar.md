@@ -1,12 +1,7 @@
 <!-- docs/_sidebar.md -->
 
-* [HOME](./)
+* [这什么](./)
 
-* [Tutorials](./tutorials/index)
-  * [Tomcat](./tutorials/tomcat/index)
-  * [Cloud](./tutorials/cloud/index)
-  * [Java](./tutorials/java/index)
-
-* [About](./about/index)
-
-* [Contact](./contact/index)
+* [Re:PhiEdit 谱面格式](./study/pec/)
+    * [谱面信息内容](./study/pec/InfoFile.md)
+    * [谱面文件格式](./study/pec/ChartFile.md)
