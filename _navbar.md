@@ -1,8 +1,8 @@
 
 * Studies
-  * [RPE Chart File](study.pec)
+  * [RPE Chart's File](study/pec/README.md)
 
-* **MilkCOCO**
+* **[[MilkCOCO](/image/MilkCOCO-64x.png)](README.md)**
   * [BiliBili](https://space.bilibili.com/1792268350)
   * 
   <a href="javascript:void(0);" 
