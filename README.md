@@ -1,10 +1,12 @@
 
 # 这是小奶椰写的文档！！！！！！
 ------------------
+<br>
+<br>
 
-* [Re:PhiEdit 谱面格式](study/pec/README.md)
-    * [谱面信息内容](study/pec/InfoFile.md)
-    * [谱面文件格式](study/pec/ChartFile.md)
+## 研究
+
+### [Re:PhiEdit 谱面格式](study/pec/README.md)
 
 
 
