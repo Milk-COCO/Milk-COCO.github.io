@@ -195,7 +195,7 @@ Key和Value为任意类型
 
 ```JSON
 "extended" : {
-    "paintEvents" : [ ],  //... 省略事件们，下同 ...
+    "paintEvents" : [ ],  // ... 省略事件们，下同 ...
     "colorEvents" : [ ],
     "gifEvents" : [ ],
     "inclineEvents" : [ ],
@@ -310,11 +310,16 @@ Key和Value为任意类型
 `List<Line>` judgeLineList ：储存判定线们  
 `JObject` *Line ：判定线
 
-* `string` Texture ：判定线的贴图。只需要填入文件名就可以了，RPE会自己找到图片文件。  
-  默认line.png，判定线显示一条4000*5的线。如果不为默认，导出pez时会自动一起打包判定线贴图。  
+* `string` Texture ：判定线的贴图。只需要填入文件名就可以了，RPE会自己在RPE的目录里面找到图片文件。
+
+  默认line.png，判定线显示一条4000*5的线。  
+
+  判定线贴图的大小处理是适合宽度。即显示大小为 图片大小*(视口大小/1350)  
+
+  如果不为line.png，导出pez时会自动一起打包对应判定线贴图，到pez文件根目录。
+    
 * `double[2]` anchor  ：描述原点位于贴图的什么位置。原点位于贴图左上角为`[0.0,0.0]`，右下角为`[1.0,1.0]`
 <br>
-
 
 * `double` bpmfactor ：判定线BPM倍率，运用在这条线上的BPM将会乘以这个值
 * `int` father ：父线，负数表示没有父线。有则该线的参考系为父线的锚点，但不继承角度。
@@ -323,15 +328,48 @@ Key和Value为任意类型
 * `bool` isGif ：当Texture是一个gif时，该值为`true`。此时`gifEvents`可用。见下面内容。
 <br>
 
-
 * `int` -Group ：记录该判定线属于judgeLineGroup中的哪一组。在播放时无用。
 * `string` -Name ：判定线的昵称。
-* `int` -numOfNotes ：该线上Note的数量。无任何用途。
+* `int` -numOfNotes ：该线上Note的数量。无任何用途，改了也不影响rpe算分、算Combo等。
+
+<br>
+<br>
+<br>
 
 
 * `List<NormalEventLayer>` eventLayers ：储存事件层们
 ### NormalEventLayer 普通事件层
-* `Dictionary<NormalEvents,NormalEventList>` *NormalEventLayer：事件层，储存一层中各种事件的列表
+* `Dictionary<NormalEvents,NormalEventList>` *NormalEventLayer：事件层，储存一层中各种事件的列表  
+
+  <details>
+    <summary>可能为null</summary>
+
+    在RPE中，事件层一共有五层，前四层为普通事件层，最后一层为
+    如果一个事件层是最后一个有内容的层级，他的后面不会再有元素。
+
+    例：当0层没有东西，1层有东西时，eventLayers的第0个元素为null，eventLayers元素数量为2
+
+    在RPE中，最后一层也被导出事件层的相关代码处理：
+    * 如果最后一层有内容，这里也会创建元素。  
+      但是第五层的实际内容放在 extended 和 extra.json 里面，实际上并不会存在eventLayers里面。  
+      所以这里会填充null直到有五层。
+
+    像这样：
+    ```JSON
+    "eventLayers" : [
+        {
+            "alphaEvents" : [ ],  // ... 省略事件们，下同 ...
+            "moveXEvents" : [ ],
+            "moveYEvents" : [ ],
+            "rotateEvents" : [ ],
+            "speedEvents" : [ ]
+        },
+        null,null,null,null
+    ]
+    ```
+  </details>
+
+<br>
 
 * `List<NormalEvent>` *NormalEventList：事件条，储存一种事件
 #### NormalEvent 普通事件
@@ -356,8 +394,9 @@ Key和Value为任意类型
   * `double` start ：起始值
   * `double` end ：结束值
   * `Beat` startTime ：起始时间
-  * `Beat` endTime ：结束值
-  如果在 速度事件 中，下面这些属性不存在
+  * `Beat` endTime ：结束值  
+
+  如果在 speedEvents 中，下面这些属性不存在
   * `int` easingType ：缓动类型，详见[缓动对照表][easing]  
     缓动左下角为[0,0]，右上角为[1,1]
   * `double` easingLeft ：缓动切割左  
