@@ -1,0 +1,123 @@
+# Rizline 发布版谱面格式
+Rizline 的谱面是以 json 储存的
+
+----------------------
+
+Color元素：一个拥有Srgba元素的json对象  
+取值范围皆为 [0,255]  
+```json
+{
+    "r": 0,
+    "g": 0,
+    "b": 0,
+    "a": 255
+}
+```
+
+[easing]: /study/riz/easing.md
+[Riz缓动点我跳转][easing]
+
+时间单位皆为拍，取决于当前BPM。
+
+xx的时间，表示xx的生命结束的时间
+
+对于坐标，没说就是X坐标。  
+因为riz中，y坐标的概念不明确，其基本上被Floor Position概念替代  
+毕竟不能上下移动！
+
+小数精度皆为 IEEE754 单精度浮点数
+
+默认属性下视口的x坐标 最左边 -1 ，最右边 1 
+
+视口 宽、高 为 W、H  
+它们被用作为单位，例如：
+0.2 倍的屏幕宽度，计为 0.2W
+
+Floor Position 可以翻译为 累计值。
+
+# `themes` 主题们
+首个为默认主题。  
+其余的为每个challengeTimes（riztime）的主题。  
+按照谱面内所存一一对应。  
+## 每一个json列表
+## `colorsList` 颜色列表
+### 三个Color元素 分别为 背景、note、ui(血条、打击特效等)颜色
+
+# `challengeTimes` Riztime们
+## `checkPoint` 检查点？意义不明，有的为start，有的为0
+## `start` 开始时间
+## `end` 结束时间
+## `transTime` 过度动画持续时长
+
+# `bPM` 基础BPM
+
+# `bpmShifts` BPM变换们
+## 每一个json对象
+### `value` 当前BPM倍率。当前BPM会为 `bPM` * `value`
+### `time` 开始使用当前BPM的时间
+### `floorPosition` 为`time`所对应的真实时间，单位秒
+### `easeType` 过度类型？没有使用过，始终为0
+
+# `offset` 谱面相对于音乐的偏移值，单位ms
+
+# `canvasMoves` 画布们
+所有的元素都要参考一个画布。它们的坐标基于画布。
+## 每一个json对象
+### `index` 序号。出现的皆与下标相同。
+
+### `xPositionKeyPoints` X坐标关键帧们。规定画布x坐标。
+#### 每一个json对象
+##### `time` 时间
+##### `value` 值，单位W
+##### `easeType` 值与下一个关键帧值过度的缓动类型
+##### `floorPosition` 此处无意义
+
+### `speedKeyPoints` 速度关键帧们。
+##### `time` 时间
+##### `value` 值，单位H/s
+##### `easeType` 值与下一个关键帧值过度的缓动类型。此处恒定为0
+##### `floorPosition` ？从0时刻到time的速度积分，单位H
+
+# `lines` 线们
+## 每一个json对象
+
+### `notes` 所有的Note们
+#### 每一个json对象 
+##### `type` 类型。0 Tap , 1 Drag , 2 Hold
+##### `time` 开始判定时间
+##### `floorPosition` Note（或Hold头）在0时刻的y坐标，单位H
+##### `otherInformations` 附加信息，神经病存法。
+###### 为hold时有三个元素，分别为 Hold结束判定时间 Hold尾绑定的canvas Hold尾的floorPosition
+
+### `judgeRingColor` 判定环颜色关键帧
+#### 每一个json对象
+第一个 `time` 之后才会显示判定环。
+##### `time` 关键帧时间
+##### `startColor` 一个Color元素，起始颜色
+##### `endColor` 一个Color元素，结束颜色
+在两个关键帧之间，判定环基础颜色取决于前者。  
+其中两帧之间的每一个时刻的颜色，为线性插值起始、结束颜色。
+
+### `lineColor` 线基础颜色关键帧
+#### 每一个json对象
+第一个 `time` 之前，基础颜色可视为`[255,255,255,255]`。
+##### `time` 关键帧时间
+##### `startColor` 一个Color元素，起始颜色
+##### `endColor` 一个Color元素，结束颜色
+在两个关键帧之间，判定环基础颜色取决于前者。  
+其中两帧之间的每一个时刻的颜色，为线性插值起始、结束颜色。
+
+### `linePoints` 节点们
+#### 每一个json对象
+注意节点实际上是不显示的，只有线渲染，那种视觉上看到的点只是两条线的转折
+##### `time` 节点的时间
+##### `xPosition` 节点的X坐标
+##### `color` 一个Color元素，节点的颜色。
+其中两个节点之间的线上的每一个点的颜色，为按照其各自的时间线性插值两个节点颜色。  
+得到了颜色C，再与线基础颜色B叠加混合，其中alpha通道 只取决于C，B的alpha通道为混合比例。  
+即实际颜色为`[(B*B.a+C*(255-B.a))/255/2, C.a]`。
+##### `easeType` X坐标过度缓动
+其中两个节点之间的线上的每一个点的坐标，为按照其各自的时间线性插值两个节点坐标
+##### `canvasIndex` 节点所处画布
+
+
