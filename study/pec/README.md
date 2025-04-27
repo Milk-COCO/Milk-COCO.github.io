@@ -117,7 +117,7 @@ RPE的谱面文件一个是格式化了的 [JSON 文件](https://www.runoob.com/
 
 ## 特别定义
 
-我加入了属性的类型，但感觉有些时候太复杂，有些时候太简单了，会让人看不明白。
+我加入了属性的类型，但感觉有些时候太复杂，有些时候太简单了，会让人看不明白。  
 于是我把那些内容按照下面的规则，优化了一些  
 <br>
 
@@ -344,13 +344,15 @@ Key和Value为任意类型
   <details>
     <summary>可能为null</summary>
 
-    在RPE中，事件层一共有五层，前四层为普通事件层，最后一层为
+    在RPE中，事件层一共有五层，前四层为普通事件层，最后一层为附加事件（extended）
     如果一个事件层是最后一个有内容的层级，他的后面不会再有元素。
 
     例：当0层没有东西，1层有东西时，eventLayers的第0个元素为null，eventLayers元素数量为2
 
     在RPE中，最后一层也被导出事件层的相关代码处理：
     * 如果最后一层有内容，这里也会创建元素。  
+      注意是RPE里面的最后一层。  
+      <br\>
       但是第五层的实际内容放在 extended 和 extra.json 里面，实际上并不会存在eventLayers里面。  
       所以这里会填充null直到有五层。
 
@@ -366,6 +368,7 @@ Key和Value为任意类型
         },
         null,null,null,null
     ]
+    
     ```
   </details>
 
@@ -390,24 +393,32 @@ Key和Value为任意类型
 ```
 
 * `JObject` *Event：事件，储存单个事件  
-  * `int` -linkgroup ：绑定组，相同绑定组的事件，在RPE中start和end属性相同
+  * `int` -linkgroup ：绑定组，在RPE中，相同绑定组的、在同一条线上事件，修改任意start和end，
   * `double` start ：起始值
   * `double` end ：结束值
-  * `Beat` startTime ：起始时间
-  * `Beat` endTime ：结束值  
+    若实际缓动函数表示为e(x)，当前事件为t  
+    s e st et分别为事件起始结束值和时间  
+    当前值 = s + e((t-st)/(et-st)) * (e-s)  
+  * `Beat` startTime ：起始时间  
+  * `Beat` endTime ：结束时间  
 
-  如果在 speedEvents 中，下面这些属性不存在
+  <br\>
+  如果在 speedEvents 中，下面这些属性不存在  
   * `int` easingType ：缓动类型，详见[缓动对照表][easing]  
     缓动左下角为[0,0]，右上角为[1,1]
   * `double` easingLeft ：缓动切割左  
   * `double` easingRight ：缓动切割右  
-    若原缓动函数表示为f(x)，实际缓动由 原函数的  
-    [easingLeft,f(easingLeft)]为左下角[0,0]  
-    [easingRight,f(easingRight)]为右上角[1,1] 组成  
+    分别简写为 l 和 r 
+    若原缓动函数表示为f(x)，实际缓动e(x)由 原函数的  
+    [l,f(l)]为左下角[0,0]  
+    [r,f(r)]为右上角[1,1] 组成  
+    即：e(x) = ( f( (r - l) * x + l) - f(l) ) / ( f(r) - f(l) )
+    
   * `int` bezier ：若为1，自定义贝塞尔曲线 bezierPoints 可用  
-  * `double[4]` bezierPoints ：自定义贝塞尔曲线的两个控制点的相对坐标，x1 y1 y2 y2
+  * `double[4]` bezierPoints ：自定义贝塞尔曲线的两个控制点的相对坐标，x1 y1 y2 y2  
+    因为缓动是函数，所以有一个x对应多个y时缓动函数会 ***阈限完全崩坏***  
+    函数图像 超出0-1区间的表现为 截断
   
-
 
 
 
