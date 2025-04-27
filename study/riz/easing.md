@@ -28,7 +28,7 @@ public static class Easing : Object
 	public static double EasingCalc(ushort type,double time, double a = 1)
 	{
 		if(time==0) return 0;
-		if(time>1) return 1;
+		if(time>=1) return 1;
 		return type switch
 		{
 			0 => Linear(time),
@@ -49,8 +49,8 @@ public static class Easing : Object
 			11 => QuartOut(time),
 			12 => QuartInOut(time),
 			
-			13 => Zero(time),
-			15 => One(time),
+			13 => Zero(),
+			14 => One(),
 			
 			_ => Linear(time)
 		};
@@ -75,7 +75,7 @@ public static class Easing : Object
 	public static double QuartIn(double k) => k * k * k * k;
 	public static double QuartInOut(double k) => ((k *= 2) < 1) ? 0.5 * k * k * k * k : -0.5 * ((k -= 2) * k * k * k - 2);
 
-	public static double Zero(double k) => 0;
-	public static double One(double k) => 1;
+	public static double Zero() => 0;
+	public static double One() => 1;
 }
 ```
