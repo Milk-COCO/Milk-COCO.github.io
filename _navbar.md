@@ -1,7 +1,3 @@
-
-* Studies
-  * [RPE Chart's File](study/pec/README.md)
-
 * **[[MilkCOCO](/image/MilkCOCO-64x.png)](README.md)**
   * [BiliBili](https://space.bilibili.com/1792268350)
   * 
