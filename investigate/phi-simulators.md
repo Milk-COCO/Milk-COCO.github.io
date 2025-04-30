@@ -145,6 +145,8 @@
 
 [Ivan-1F/phichain](https://github.com/Ivan-1F/phichain)
 
+[PhiFans/editor](https://github.com/PhiFans/editor)
+
 [Zes-MinKey-Young/kpa](https://github.com/Zes-MinKey-Young/kpa)
 
 [nk980113/BPCE](https://github.com/nk980113/BPCE)
