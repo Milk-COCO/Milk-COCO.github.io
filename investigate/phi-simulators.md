@@ -183,7 +183,6 @@
 
 ##### 已弃用
 
-[happymimimix/RePhiEdit-Modded](https://github.com/happymimimix/
-RePhiEdit-Modded)
+[happymimimix/RePhiEdit-Modded](https://github.com/happymimimix/RePhiEdit-Modded)
 
 [2659170494/RePhiEdit-Modded](https://github.com/2659170494/RePhiEdit-Modded)
