@@ -147,15 +147,11 @@
 
 [Zes-MinKey-Young/kpa](https://github.com/Zes-MinKey-Young/kpa)
 
-[panchongyang/PCYPhiEditor](https://github.com/panchongyang/PCYPhiEditor)
-
 [nk980113/BPCE](https://github.com/nk980113/BPCE)
 
 [HellishBro/PhiCharting](https://github.com/HellishBro/PhiCharting)
 
 [ChenWuwei404/py-phi-editor](https://github.com/ChenWuwei404/py-phi-editor)
-
-[ZerWhit/phigros-haxe-port](https://github.com/ZerWhit/phigros-haxe-port)
 
 [Q-roo/phigros-chart-engine](https://github.com/Q-roo/phigros-chart-engine)
 
@@ -167,16 +163,19 @@
 
 [0thElement/PhiCharter](https://github.com/0thElement/PhiCharter)
 
+[panchongyang/PCYPhiEditor](https://github.com/panchongyang/PCYPhiEditor)
+
+[ZerWhit/phigros-haxe-port](https://github.com/ZerWhit/phigros-haxe-port)
+
+
 #### 已弃用
 
 [AsakuraMizu/PhiCreatorLegacy](https://github.com/AsakuraMizu/PhiCreatorLegacy)
 
 #### 魔改版RPE
 
-皆为同源
-
-不建议使用
-
+皆为同源  
+不建议使用  
 曾被病毒入侵
 
 [happymimimix/Ex-Phiedit](https://github.com/happymimimix/Ex-Phiedit)
