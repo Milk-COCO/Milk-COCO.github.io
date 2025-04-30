@@ -2,10 +2,11 @@
 
 一个列表列出了所有旨在模拟Phigros的Github仓库们
 
-（可能有误加漏加，欢迎联系我）
+空壳仓库被排除在外
+
+（可能有误加、漏加，欢迎联系我以改进）
 
 ----------------------------------------
-
 
 ## 除播放谱面之外
 
@@ -18,16 +19,13 @@
 [GaoiceX/Phigros-Gugu-s-Android-Power-on-animation](https://github.com/GaoiceX/Phigros-Gugu-s-Android-Power-on-animation)
 
 
-
 ## 谱面播放器
-
-[lchzh3473/sim-phi](https://github.com/lchzh3473/sim-phi)
 
 [yuameshi/PhiCommunity](https://github.com/yuameshi/PhiCommunity)
 
 [kvarenzn/phisap](https://github.com/kvarenzn/phisap)
 
-[Mivik/prpr](https://github.com/Mivik/prpr)
+[TeamFlos/phira](https://github.com/TeamFlos/phira)
 
 [MisaLiu/phi-chart-render](https://github.com/MisaLiu/phi-chart-render)
 
@@ -41,19 +39,11 @@
 
 [MisaWorkGroup/Ph1gr0s-Emulator](https://github.com/MisaWorkGroup/Ph1gr0s-Emulator)
 
-[FallingMY/phi-zone.github.io](https://github.com/FallingMY/phi-zone.github.io)
-
-[Team-PhiTogether/PhiTogether-Legacy](https://github.com/Team-PhiTogether/PhiTogether-Legacy)
-
 [Team-PhiTogether/PhiTogether](https://github.com/Team-PhiTogether/PhiTogether)
 
 [liquidhelium/phirs](https://github.com/liquidhelium/phirs)
 
-[Winamin/Phi-TK](https://github.com/Winamin/Phi-TK)
-
 [lhy6305/webgros](https://github.com/lhy6305/webgros)
-
-[SLDYK/PhiEditerRendererManager](https://github.com/SLDYK/PhiEditerRendererManager)
 
 [SonolusHaniwa/sonolus-phigros-engine](https://github.com/SonolusHaniwa/sonolus-phigros-engine)
 
@@ -109,8 +99,6 @@
 
 [nakayamakinnnikunn-purotann/Phigros](https://github.com/nakayamakinnnikunn-purotann/Phigros)
 
-[GHMKhouse/Phitism](https://github.com/GHMKhouse/Phitism)
-
 [K0nGbawa/ScrPhigros](https://github.com/K0nGbawa/ScrPhigros)
 
 [panchongyang/Phi-Player](https://github.com/panchongyang/Phi-Player)
@@ -135,23 +123,29 @@
 
 [zphw/project-p](https://github.com/zphw/project-p)
 
+[lchzh3473/sim-phi](https://github.com/lchzh3473/sim-phi)
 
+### 已弃用
+
+[Team-PhiTogether/PhiTogether-Legacy](https://github.com/Team-PhiTogether/PhiTogether-Legacy)
+
+### 可渲染谱面视频
+
+[2278535805/Phi-Recorder](https://github.com/2278535805/Phi-Recorder)
+
+[TeamFlos/phira-render](https://github.com/TeamFlos/phira-render)
+
+[Mivik/prpr](https://github.com/Mivik/prpr)
+
+[Winamin/Phi-TK](https://github.com/Winamin/Phi-TK)
+
+[SLDYK/PhiEditerRendererManager](https://github.com/SLDYK/PhiEditerRendererManager)
 
 ### 制谱器
 
-[happymimimix/Ex-Phiedit](https://github.com/happymimimix/Ex-Phiedit)
-
 [Ivan-1F/phichain](https://github.com/Ivan-1F/phichain)
 
-[tdtd-cpu/PhiCreator](https://github.com/tdtd-cpu/PhiCreator)
-
-[AsakuraMizu/PhiCreatorLegacy](https://github.com/AsakuraMizu/PhiCreatorLegacy)
-
-[0thElement/PhiCharter](https://github.com/0thElement/PhiCharter)
-
 [Zes-MinKey-Young/kpa](https://github.com/Zes-MinKey-Young/kpa)
-
-[happymimimix/RePhiEdit-Modded](https://github.com/happymimimix/RePhiEdit-Modded)
 
 [panchongyang/PCYPhiEditor](https://github.com/panchongyang/PCYPhiEditor)
 
@@ -159,16 +153,37 @@
 
 [HellishBro/PhiCharting](https://github.com/HellishBro/PhiCharting)
 
-[ReDarkTechnology/Phinita](https://github.com/ReDarkTechnology/Phinita)
-
-[Arrokoth486958/PhiCreator](https://github.com/Arrokoth486958/PhiCreator)
-
 [ChenWuwei404/py-phi-editor](https://github.com/ChenWuwei404/py-phi-editor)
-
-[2659170494/RePhiEdit-Modded](https://github.com/2659170494/RePhiEdit-Modded)
 
 [ZerWhit/phigros-haxe-port](https://github.com/ZerWhit/phigros-haxe-port)
 
 [Q-roo/phigros-chart-engine](https://github.com/Q-roo/phigros-chart-engine)
 
-[Nannan-Nahida/Phi_ScEdit](https://github.com/Nannan-Nahida/Phi_ScEdit)
+#### 已停止更新
+
+[Arrokoth486958/PhiCreator](https://github.com/Arrokoth486958/PhiCreator)
+
+[tdtd-cpu/PhiCreator](https://github.com/tdtd-cpu/PhiCreator)
+
+[0thElement/PhiCharter](https://github.com/0thElement/PhiCharter)
+
+#### 已弃用
+
+[AsakuraMizu/PhiCreatorLegacy](https://github.com/AsakuraMizu/PhiCreatorLegacy)
+
+#### 魔改版RPE
+
+皆为同源
+
+不建议使用
+
+曾被病毒入侵
+
+[happymimimix/Ex-Phiedit](https://github.com/happymimimix/Ex-Phiedit)
+
+##### 已弃用
+
+[happymimimix/RePhiEdit-Modded](https://github.com/happymimimix/
+RePhiEdit-Modded)
+
+[2659170494/RePhiEdit-Modded](https://github.com/2659170494/RePhiEdit-Modded)
